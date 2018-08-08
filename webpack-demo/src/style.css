@@ -1,0 +1,23 @@
+.hello {
+    color: red;
+    background: url('./icon.png');
+}
+
+  @font-face {
+      font-family: "xljfont";
+      src: url('./fonts/icomoon.eot');
+      src: url('./fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+      url('./fonts/icomoon.woff') format('woff'),
+      url('./fonts/icomoon.ttf') format('truetype'),
+      url('./fonts/icomoon.svg#icomoon') format('svg')
+  }
+
+  .xljfont:before {
+      content: "\e900";
+      font-family: "xljfont" !important;
+      font-style: normal;
+      -webkit-font-smoothing: antialiased;
+      vertical-align: middle;
+  }
+  
+  
