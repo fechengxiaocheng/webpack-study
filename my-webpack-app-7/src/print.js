@@ -3,5 +3,5 @@ if (process.env.NODE_ENV !== 'production') {
     console.log('非生产环境')
 }
 export default () => {
-  console.log('hhh xljlj   233 i!');
+  console.log('hhh 233 i!');
 }

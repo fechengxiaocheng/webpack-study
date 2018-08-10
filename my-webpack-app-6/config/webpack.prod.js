@@ -7,5 +7,8 @@ module.exports = merge(common, {
     devtool: 'source-map',
     plugins: [
         new webpack.BannerPlugin('版权必究，程小程！'),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('production')
+        }),
     ]
 });

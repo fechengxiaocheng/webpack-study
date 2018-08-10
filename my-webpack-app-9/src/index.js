@@ -4,7 +4,7 @@ async function getComponents() {
     const el = document.createElement('div');
     const btn = document.createElement('button');
     const _ = await import(/* webpackChunkName: "lodash" */ 'lodash');
-    el.innerHTML = _.join(['hello xlj','sad'], ' ~~ ');
+    el.innerHTML = _.join(['hello xlj','happy'], ' ~~ ');
     el.classList.add('hello');
     btn.innerHTML = 'click me';
     btn.onclick =  e => import(/* webpackChunkName: "print" */ './print.js').then(module => {

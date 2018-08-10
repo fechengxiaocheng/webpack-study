@@ -1,11 +1,9 @@
 import printMe from './print';
 import './style.css';
-import _ from 'lodash';
-
 function components() {
     var el = document.createElement('div');
     var btn = document.createElement('button');
-    el.innerHTML = 'hello xlj 啊啊啊' + _;
+    el.innerHTML = 'hello xlj 啊啊啊';
     el.classList.add('hello');
     btn.innerHTML = 'click me';
     btn.onclick = printMe;

@@ -8,52 +8,22 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
     entry: {
-        app: './src/index.js',
-        another: './src/another-module.js'
+        app: './src/index.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[hash].bundle.js',
+        chunkFilename: '[name].bundle.js'
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            title: '热模块替换+生产环境部署+代码分离'
+            title: '热模块替换+生产环境部署+代码分离+动态导入'
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[hash].css',
-            chunkFilename: '[id].[hash].css'
         })
     ],
-    optimization: {
-        splitChunks: {
-        chunks: 'all'
-        }
-    },
-    // optimization: {
-    //     splitChunks: {
-    //       chunks: "all", 
-    //       minSize: 0,   
-    //       name: 'common',      
-    //       minChunks: 1,             
-    //     },
-    //     minimizer: [
-    //         new UglifyJsPlugin({
-    //           cache: true,
-    //           parallel: true,
-    //           sourceMap: true // set to true if you want JS source maps
-    //         }),
-    //         new OptimizeCSSAssetsPlugin({
-    //             assetNameRegExp: /\.css\.*(?!.*map)/g,  //注意不要写成 /\.css$/g
-    //             cssProcessor: require('cssnano'),
-    //             cssProcessorOptions: {
-    //                 discardComments: { removeAll: true },
-    //                 autoprefixer: false
-    //             },
-    //             canPrint: true
-    //         })
-    //       ]
-    // },
     module: {
         rules: [
             {
@@ -62,6 +32,11 @@ module.exports = {
                     MiniCssExtractPlugin.loader,
                     'css-loader'
                 ]
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: '/node_modules/'
             }
         ]
     }
