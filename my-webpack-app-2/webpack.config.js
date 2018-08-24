@@ -13,7 +13,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            title: '管理输出哈哈哈'
+            title: '管理输出'
         })
     ],
 }
